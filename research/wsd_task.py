@@ -98,6 +98,7 @@ def extract_sentences(num_sentences=-1):
                 word_sense_dict[word] |= senses
             sentence_list.append(sentence_word_list)
             print(len(sentence_list))
+    print(word_sense_dict)
     return sentence_list, word_sense_dict
 
 
@@ -472,22 +473,24 @@ def dummy_predict_word_sense(sentence_list):
 
 
 # Testing --------------------------------------------------------------------------------------------------------------
-sentence_list, word_sense_dict = extract_sentences(200)
-clear_network = "word"
-guess_method = "naive_semantic"
-print("Semantic: No Spreading, Clear After Word")
-no_spread_dict = get_corpus_accuracy(guess_method, sentence_list, word_sense_dict, clear_network=clear_network)
-no_spread_df = pd.DataFrame(list(no_spread_dict.items()), columns = ["Word", "Guess"])
-print(no_spread_df)
 
-print()
-print()
+# sentence_list, word_sense_dict = extract_sentences(200)
+# clear_network = "word"
+# guess_method = "naive_semantic"
+# print("Semantic: No Spreading, Clear After Word")
+# no_spread_dict = get_corpus_accuracy(guess_method, sentence_list, word_sense_dict, clear_network=clear_network)
+# no_spread_df = pd.DataFrame(list(no_spread_dict.items()), columns = ["Word", "Guess"])
+# print(no_spread_df)
+#
+# print()
+# print()
+#
+# guess_method = "naive_semantic_spreading"
+# print("Semantic: Spreading, Clear After Word")
+# spread_dict = get_corpus_accuracy(guess_method, sentence_list, word_sense_dict, clear_network=clear_network)
+# spread_df = pd.DataFrame(list(spread_dict.items()), columns = ["Word", "Guess"])
+# print(spread_df)
 
-guess_method = "naive_semantic_spreading"
-print("Semantic: Spreading, Clear After Word")
-spread_dict = get_corpus_accuracy(guess_method, sentence_list, word_sense_dict, clear_network=clear_network)
-spread_df = pd.DataFrame(list(spread_dict.items()), columns = ["Word", "Guess"])
-print(spread_df)
 
 
 
